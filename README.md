@@ -6,6 +6,6 @@
 
 Ejemplo de petición: «Usa `entrada/personaje.png`. Quita el fondo, conserva la ropa y los accesorios, haz que respire y parpadee, y crea un bucle suave».
 
-`historial/` conserva los GIF y PNG animados terminados. Los archivos intermedios, como las hojas de fotogramas, se borran al acabar. La imagen de entrada se conserva intacta.
+`historial/` conserva únicamente los GIF terminados. Los archivos intermedios, como las hojas de fotogramas, se borran al acabar. La imagen de entrada se conserva intacta.
 
-El ejemplo de Spiffo está en `spiffo-reference.png`; sus animaciones están en `historial/`. `build_gif.py` recompone **solo ese ejemplo** a partir de su hoja de fotogramas y la elimina al terminar; para ejecutarlo se necesita Pillow (`pip install Pillow`).
+El ejemplo de Spiffo está en `spiffo-reference.png`; su GIF está en `historial/`. `build_gif.py` recompone **solo ese ejemplo** a partir de su hoja de fotogramas y la elimina al terminar; para ejecutarlo se necesita Pillow (`pip install Pillow`).

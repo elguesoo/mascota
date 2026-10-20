@@ -9,7 +9,6 @@ ROOT = Path(__file__).resolve().parent
 SHEET = ROOT / "spiffo-expressive-frames-v2.png"
 HISTORY = ROOT / "historial"
 GIF_OUTPUT = HISTORY / "spiffo.gif"
-APNG_OUTPUT = HISTORY / "spiffo-animado-transparente.png"
 
 
 def main() -> None:
@@ -36,16 +35,6 @@ def main() -> None:
 
     durations = [310, 200, 210, 190, 150, 230, 230, 300]
 
-    frames[0].save(
-        APNG_OUTPUT,
-        save_all=True,
-        append_images=frames[1:],
-        duration=durations,
-        loop=0,
-        disposal=0,
-        blend=0,
-    )
-
     gif_frames = []
     for frame in frames:
         indexed = frame.quantize(colors=255, method=Image.Quantize.FASTOCTREE)
@@ -66,7 +55,6 @@ def main() -> None:
     )
     SHEET.unlink()
     print(GIF_OUTPUT)
-    print(APNG_OUTPUT)
     print(f"Deleted intermediate: {SHEET}")
 
 
