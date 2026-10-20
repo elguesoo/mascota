@@ -1,11 +1,11 @@
-# Animar un personaje desde una imagen
+# Animate a character from an image
 
-1. Guarda tu imagen en `entrada/` (por ejemplo, `entrada/personaje.png`).
-2. Dile al asistente qué personaje debe aislar y cómo quieres que se mueva. Puedes escribir las instrucciones directamente en el chat.
-3. El asistente quitará el fondo, creará la animación y guardará los archivos finales en `historial/`.
+1. Place your image in `entrada/` (for example, `entrada/character.png`).
+2. Tell the assistant which character to isolate and how you want it to move. You can give the instructions directly in chat.
+3. The assistant will remove the background, create the animation, and save the finished files in `historial/`.
 
-Ejemplo de petición: «Usa `entrada/personaje.png`. Quita el fondo, conserva la ropa y los accesorios, haz que respire y parpadee, y crea un bucle suave».
+Example request: “Use `entrada/character.png`. Remove the background, keep the clothing and accessories, make the character breathe and blink, and create a smooth loop.”
 
-`historial/` conserva únicamente los GIF terminados. Los archivos intermedios, como las hojas de fotogramas, se borran al acabar. La imagen de entrada se conserva intacta.
+`historial/` stores the finished animations. Intermediate files, such as frame sheets, are removed when the work is complete. The input image is kept unchanged.
 
-El ejemplo de Spiffo está en `spiffo-reference.png`; su GIF está en `historial/`. `build_gif.py` recompone **solo ese ejemplo** a partir de su hoja de fotogramas y la elimina al terminar; para ejecutarlo se necesita Pillow (`pip install Pillow`).
+The repository includes an example animation at [`historial/spiffo.gif`](historial/spiffo.gif). The original Spiffo reference image is not included. `build_gif.py` can rebuild the example only when its intermediate frame sheet, `spiffo-expressive-frames-v2.png`, is present in the project root; the script deletes that sheet after building the GIF. Pillow is required (`pip install Pillow`).
