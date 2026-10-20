@@ -7,14 +7,18 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent
 SHEET = ROOT / "spiffo-expressive-frames-v2.png"
-GIF_OUTPUT = ROOT / "spiffo.gif"
-APNG_OUTPUT = ROOT / "spiffo-animado-transparente.png"
+HISTORY = ROOT / "historial"
+GIF_OUTPUT = HISTORY / "spiffo.gif"
+APNG_OUTPUT = HISTORY / "spiffo-animado-transparente.png"
 
 
 def main() -> None:
-    sheet = Image.open(SHEET).convert("RGBA")
+    with Image.open(SHEET) as source:
+        sheet = source.convert("RGBA")
     if sheet.size != (1536, 1024):
         raise ValueError(f"Unexpected frame sheet size: {sheet.size}")
+
+    HISTORY.mkdir(exist_ok=True)
 
     frames = []
     for index in range(8):
@@ -60,8 +64,10 @@ def main() -> None:
         transparency=255,
         optimize=False,
     )
+    SHEET.unlink()
     print(GIF_OUTPUT)
     print(APNG_OUTPUT)
+    print(f"Deleted intermediate: {SHEET}")
 
 
 if __name__ == "__main__":
